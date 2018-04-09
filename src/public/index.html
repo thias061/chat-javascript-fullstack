@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Chat javascript fullstack</title>
+    <!-- BOOTSTRAP-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <!-- custom css-->
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    <nav class="nav navbar-light bg-warning">
+        <a class="nav navbar-brand mx-auto" href="/">Javascript Fullstack Chat</a>
+    </nav>
+    <div class="container">
+        <div class="col-md-6 mt-4">
+            <div class="card">
+                <div class="card-header">
+                    <g4>let's Chat</g4>
+                </div>
+                <div id="chat" class="card-body"></div>
+
+                <form id="message-form" class="card-footer">
+                    <div class="input-group">
+                        <input type="text" id="message" class="form-control">
+                        <div class="input-group-append">
+                            <input type="submit" class="btn btn-warning"></input>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+
+</html>
