@@ -34,15 +34,17 @@ $(function () {
             nickname.val('');
         });
     });
-    
+    //Message submit
     messageForm.submit(e => {
         e.preventDefault();
-        socket.emit('send message', messageBox.val());
+        socket.emit('send message', messageBox.val(), data => {
+            displayMsg(data);
+        });
         messageBox.val('');
     });
 
     socket.on('new message', data => {
-        chat.append('<b>' + data.nick + '</b> : ' + data.msg + '</br>');
+        displayMsg(data);
     });
 
     socket.on('usernames', data => {
@@ -52,4 +54,18 @@ $(function () {
         }
         users.html(html);
     });
+
+    socket.on('whisper', data => {
+        displayMsg(data);
+    });
+
+    socket.on('load old msgs', msgs => {
+        for (let i=0; i < msgs.length; i++){
+            displayMsg(msgs[i]);
+        }
+    });
+
+    function displayMsg(data){
+        chat.append(`<p class="whisper"><b>${data.nick}</b>: ${data.msg}</p>`);
+    }
 })

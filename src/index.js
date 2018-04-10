@@ -2,10 +2,15 @@ const express = require('express');
 const socketio = require('socket.io');
 const http = require('http');
 const path = require('path');
-
+const mongoose = require('mongoose');
 const app = express();
 const server = http.createServer(app);
 const io = socketio.listen(server);
+
+//db connection
+mongoose.connect('mongodb://localhost/chat-databse')
+.then(db => console.log('db is connected'))
+.catch(err => console.log(err));
 
 //Settings
 app.set('port', process.env.port || 3000);
